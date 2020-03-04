@@ -1,0 +1,10 @@
+{
+    "name": "quentin/generateur_syllabes",
+    "authors": [
+        {
+            "name": "mrrouaux",
+            "email": "pierreroger64100@gmail.com"
+        }
+    ],
+    "require": {}
+}

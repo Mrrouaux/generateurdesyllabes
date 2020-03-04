@@ -1,0 +1,1 @@
+<?php include_once(generateur_syllabes.html); ?>

@@ -1,0 +1,102 @@
+h1{
+	color:black;
+	font-weight:bold;
+	text-align: center;
+	font-size: large;
+	margin: 10px 10px 10px 10px;
+}
+
+h2{
+	color:black;
+	font-weight:bold;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 25px !important;
+	margin-top: 20px !important;
+	width: 100%;
+}
+
+div{
+	padding: 0 !important;
+}
+
+form{
+	width: auto;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	padding: 0 !important;
+}
+
+body {
+	font-size: medium;
+	margin: 0 0 0 0;
+	width: auto;
+	padding: 0 !important;
+	font-family: Calibri, sans-serif;
+}
+
+label {
+	font-size: x-large;
+}
+
+#tab_consonne, #td_consonne, #tr_consonne {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#td_consonne {
+	height: 95px;
+	text-align: center;
+	font-size: xx-large !important;
+	font-weight: bold;
+}
+
+#niv_voy_1, #niv_voy_2, #niv_voy_3, #niv_voy_4, #niv_voy_5 {
+	margin-bottom: 30px;
+}
+
+tr {
+	margin-bottom: 20px;
+}
+
+td {
+	font-size: large;
+}
+
+input {
+	margin-left: 5px !important;
+	margin-right: 5px !important;
+}
+
+#choix {
+	text-align: center !important;
+}
+
+#taille, #structure, #couleur_voy {
+	text-align: center;
+}
+
+.submit {
+	text-align: center;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#bouton_submit {
+
+}
+
+.bouton_imprimer {
+	display: block;
+	margin: auto;
+	margin-top: 30px;
+}
+
+@media print {
+	.bouton_imprimer {
+		display: none;
+	}
+}

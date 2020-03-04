@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="generateur_syllabes.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <title>Générateur de syllabes de Dame Lisa</title>
+
+  <script>
+		function aff_cach_input_1() { //la fonction JS
+			if (document.getElementById('niv_voy_1').checked == true) //on regarde si tu veux afficher ou cacher le input
+			{
+				document.getElementById('niv_1').style.display="block"; //Si oui, on l'affiche
+        for(var i=1 ; i <= 8 ; i++) {
+          document.getElementById('voy_niv_1_'+i).checked=true;
+        }
+			}
+			else
+			{
+				document.getElementById('niv_1').style.display="none"; //Si non, on le cache
+        for(var i=1 ; i <= 8 ; i++) {
+          document.getElementById('voy_niv_1_'+i).checked=false;
+        }
+			}
+		return true;
+		}
+
+		function aff_cach_input_2() { //la fonction JS
+			if (document.getElementById('niv_voy_2').checked == true) //on regarde si tu veux afficher ou cacher le input
+			{
+				document.getElementById('niv_2').style.display="block"; //Si oui, on l'affiche
+        for(var i=1 ; i <= 16 ; i++) {
+          document.getElementById('voy_niv_2_'+i).checked=true;
+        }
+			}
+			else
+			{
+        document.getElementById('niv_2').style.display="none"; //Si non, on le cache
+        for(var i=1 ; i <= 16 ; i++) {
+          document.getElementById('voy_niv_2_'+i).checked=false;
+        }
+			}
+		return true;
+		}
+
+		function aff_cach_input_3() { //la fonction JS
+			if (document.getElementById('niv_voy_3').checked == true) //on regarde si tu veux afficher ou cacher le input
+			{
+				document.getElementById('niv_3').style.display="block"; //Si oui, on l'affiche
+        for(var i=1 ; i <= 4 ; i++) {
+          document.getElementById('voy_niv_3_'+i).checked=true;
+        }
+			}
+			else
+			{
+				document.getElementById('niv_3').style.display="none"; //Si non, on le cache
+        for(var i=1 ; i <= 4 ; i++) {
+          document.getElementById('voy_niv_3_'+i).checked=false;
+        }
+			}
+		return true;
+		}
+
+		function aff_cach_input_4() { //la fonction JS
+			if (document.getElementById('niv_voy_4').checked == true) //on regarde si tu veux afficher ou cacher le input
+			{
+				document.getElementById('niv_4').style.display="block"; //Si oui, on l'affiche
+        for(var i=1 ; i <= 6 ; i++) {
+          document.getElementById('voy_niv_4_'+i).checked=true;
+        }
+			}
+			else
+			{
+				document.getElementById('niv_4').style.display="none"; //Si non, on le cache
+        for(var i=1 ; i <= 6 ; i++) {
+          document.getElementById('voy_niv_4_'+i).checked=false;
+        }
+			}
+		return true;
+		}
+
+		function aff_cach_input_5() { //la fonction JS
+			if (document.getElementById('niv_voy_5').checked == true) //on regarde si tu veux afficher ou cacher le input
+			{
+				document.getElementById('niv_5').style.display="block"; //Si oui, on l'affiche
+				for(var i=1 ; i <= 4 ; i++) {
+          document.getElementById('voy_niv_5_'+i).checked=true;
+        }
+			}
+			else
+			{
+				document.getElementById('niv_5').style.display="none"; //Si non, on le cache
+        for(var i=1 ; i <= 4 ; i++) {
+          document.getElementById('voy_niv_5_'+i).checked=false;
+        }
+			}
+		return true;
+		}
+
+    function aff_cach_input_consonne() { //la fonction JS
+			if (document.getElementById('structure_deux_consonnes').checked == true || document.getElementById('structure_deux_consonnes_2').checked == true) //on regarde si tu veux afficher ou cacher le input
+			{
+				document.getElementById('choix_consonne_2').style.display="block"; //Si oui, on l'affiche
+			}
+			else
+			{
+				document.getElementById('choix_consonne_2').style.display="none"; //Si non, on le cache
+        for(var i=1 ; i <= 24 ; i++) {
+          document.getElementById('consonne_2_'+i).checked=false;
+        }
+			}
+		return true;
+		}
+	</script>
+</head>
+<body>
+
+<h1>Générateur de syllabes de Dame Lisa</h1>
+
+
+<form method="post" action="generer_syllabes.php">
+<div class="row" id="choix">
+  <div class="col-md-4">
+		   <h2>Choisir la taille du tableau de syllabes à générer :</h2>
+
+		   <input type="radio" name="taille" required value="18" id="taille" /> <label for="taille" id="taille">3 x 5</label><br />
+
+		   <input type="radio" name="taille" required value="24" id="taille" /> <label for="taille" id="taille">4 x 5</label>
+
+	</div>
+
+  <div class="col-md-4">
+			<h2>Choisir la structure souhaitée de syllabes :</h2>
+
+		   <input type="radio" name="structure"  onchange="aff_cach_input_consonne()" required value="0" id="structure" /> <label for="structure" id="structure">CV</label><br />
+
+		   <input type="radio" name="structure" onchange="aff_cach_input_consonne()" required value="1" id="structure" /> <label for="structure" id="structure">VC</label><br />
+
+		   <input type="radio" name="structure" onchange="aff_cach_input_consonne()" required value="2" id="structure_deux_consonnes" /> <label for="structure" id="structure_deux_consonnes">CCV</label><br />
+
+		   <input type="radio" name="structure" onchange="aff_cach_input_consonne()" required value="3" id="structure_deux_consonnes_2" /> <label for="structure" id="structure_deux_consonnes">CVC</label><br />
+
+		   <input type="radio" name="structure" onchange="aff_cach_input_consonne()" required value="4" id="structure" /> <label for="structure" id="structure">VCV</label>
+
+	</div>
+
+  <div class="col-md-4">
+		   <h2>Colorer les voyelles en rouge :</h2>
+
+		   <input type="radio" name="couleur_voy" required value="rouge" id="couleur_voy" /> <label for="couleur_voy" id="couleur_voy">Oui</label><br />
+
+		   <input type="radio" name="couleur_voy" required value="noir" id="couleur_voy" /> <label for="couleur_voy" id="couleur_voy">Non</label>
+
+	</div>
+</div>
+<div class="row">
+		<h2>Choix consonnes 1 :</h2><br />
+
+    <table style="width:100%;" id="tab_consonne">
+      <tr id="tr_consonne">
+        <td id="td_consonne">
+          <input type="checkbox"  name="consonne_1[]" value="f" /> <label for="f">f</label><br />
+          <input type="checkbox"  name="consonne_1[]" value="ph" /> <label for="ph">ph</label><br />
+        </td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="v" /> <label for="v">v</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="p" /> <label for="p">p</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="b" /> <label for="b">b</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="m" /> <label for="m">m</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="l" /> <label for="l">l</label><br /></td>
+      </tr>
+
+      <tr id="tr_consonne">
+        <td id="td_consonne">
+          <input type="checkbox"  name="consonne_1[]" value="s" /> <label for="s">s</label><br />
+          <input type="checkbox"  name="consonne_1[]" value="ç" /> <label for="ç">ç</label><br />
+          <input type="checkbox"  name="consonne_1[]" value="c[s]" /> <label for="c">c</label><br />
+        </td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="z" /> <label for="z">z</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="t" /> <label for="t">t</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="d" /> <label for="d">d</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_1[]" value="n" /> <label for="n">n</label><br /></td>
+        <td id="td_consonne"><input type="checkbox" name="consonne_1[]" value="r" /> <label for="r">r</label><br /></td>
+      </tr>
+      <tr id="tr_consonne">
+        <td id="td_consonne"><input type="checkbox" name="consonne_1[]" value="ch" /> <label for="ch">ch</label><br /></div></td>
+        <td id="td_consonne">
+          <input type="checkbox" name="consonne_1[]" value="j" /> <label for="j">j</label><br />
+          <input type="checkbox" name="consonne_1[]" value="g" /> <label for="g">g</label><br />
+          <input type="checkbox" name="consonne_1[]" value="ge" /> <label for="ge">ge</label><br />
+        </td>
+        <td id="td_consonne">
+          <input type="checkbox" name="consonne_1[]" value="c[qu]" /> <label for="c">c</label><br />
+          <input type="checkbox" name="consonne_1[]" value="qu" /> <label for="qu">qu</label><br />
+        </td>
+        <td id="td_consonne">
+          <input type="checkbox" name="consonne_1[]" value="g[gu]" /> <label for="g">g</label><br />
+          <input type="checkbox" name="consonne_1[]" value="gu" /> <label for="gu">gu</label><br />
+        </td>
+        <td id="td_consonne"><input type="checkbox" name="consonne_1[]" value="gn" /> <label for="gn">gn</label></td>
+        <td id="td_consonne"><input type="checkbox" name="consonne_1[]" value="x" /> <label for="x">x</label></td>
+      </tr>
+    </table>
+
+</div>
+<div class="row" id="choix_consonne_2" display="none" >
+		<h2>Choix consonnes 2 :</h2><br />
+
+    <table style="width:100%;" id="tab_consonne">
+      <tr id="tr_consonne">
+        <td id="td_consonne">
+          <input type="checkbox"  name="consonne_2[]" id="consonne_2_1" value="f" /> <label for="f">f</label><br />
+          <input type="checkbox"  name="consonne_2[]" id="consonne_2_2" value="ph" /> <label for="ph">ph</label><br />
+        </td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_3" value="v" /> <label for="v">v</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_4" value="p" /> <label for="p">p</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_5" value="b" /> <label for="b">b</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_6" value="m" /> <label for="m">m</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_7" value="l" /> <label for="l">l</label><br /></td>
+      </tr>
+
+      <tr id="tr_consonne">
+        <td id="td_consonne">
+          <input type="checkbox"  name="consonne_2[]" id="consonne_2_8" value="s" /> <label for="s">s</label><br />
+          <input type="checkbox"  name="consonne_2[]" id="consonne_2_9" value="ç" /> <label for="ç">ç</label><br />
+          <input type="checkbox"  name="consonne_2[]" id="consonne_2_24" value="c[s]" /> <label for="c">c</label><br />
+        </td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_10" value="z" /> <label for="z">z</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_11" value="t" /> <label for="t">t</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_12" value="d" /> <label for="d">d</label><br /></td>
+        <td id="td_consonne"><input type="checkbox"  name="consonne_2[]" id="consonne_2_13" value="n" /> <label for="n">n</label><br /></td>
+        <td id="td_consonne"><input type="checkbox" name="consonne_2[]" id="consonne_2_14" value="r" /> <label for="r">r</label><br /></td>
+      </tr>
+      <tr id="tr_consonne">
+        <td id="td_consonne"><input type="checkbox" name="consonne_2[]" id="consonne_2_15" value="ch" /> <label for="ch">ch</label><br /></div></td>
+        <td id="td_consonne">
+          <input type="checkbox" name="consonne_2[]" id="consonne_2_16" value="j" /> <label for="j">j</label><br />
+          <input type="checkbox" name="consonne_2[]" id="consonne_2_17" value="g" /> <label for="g">g</label><br />
+          <input type="checkbox" name="consonne_2[]" id="consonne_2_18" value="ge" /> <label for="ge">ge</label><br />
+        </td>
+        <td id="td_consonne">
+          <input type="checkbox" name="consonne_2[]" id="consonne_2_19" value="c[qu]" /> <label for="c">c</label><br />
+          <input type="checkbox" name="consonne_2[]" id="consonne_2_20" value="qu" /> <label for="qu">qu</label><br />
+        </td>
+        <td id="td_consonne"><input type="checkbox" name="consonne_2[]" id="consonne_2_21" value="gu" /> <label for="gu">gu</label><br /></td>
+        <td id="td_consonne"><input type="checkbox" name="consonne_2[]" id="consonne_2_22" value="gn" /> <label for="gn">gn</label></td>
+        <td id="td_consonne"><input type="checkbox" name="consonne_2[]" id="consonne_2_23" value="x" /> <label for="x">x</label></td>
+      </tr>
+    </table>
+
+  </div>
+
+<h2>Choix voyelles 1 :</h2>
+<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-2">
+		<input type="checkbox" name="niveau_voy" id="niv_voy_1" onchange="aff_cach_input_1()" /> <label for="niv_voy_1">Niveau 1</label><br />
+			<p id="niv_1" display="none" >
+				<input type="checkbox"  name="liste_voy[]" value="a" id="voy_niv_1_1" /> <label for="a">a</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="u" id="voy_niv_1_2" /> <label for="u">u</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="i" id="voy_niv_1_3" /> <label for="i">i</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="o" id="voy_niv_1_4" /> <label for="o">o</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="é" id="voy_niv_1_5" /> <label for="é">é</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="e" id="voy_niv_1_6" /> <label for="e">e</label><br />
+        <input type="checkbox"  name="liste_voy[]" value="è" id="voy_niv_1_7" /> <label for="è">è</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="y" id="voy_niv_1_8" /> <label for="y">y</label><br />
+			</p><script>
+				aff_cach_input_1();
+			</script>
+		</div>
+
+		<div class="col-md-2">
+        <input type="checkbox" name="niv_voy" id="niv_voy_2" onchange="aff_cach_input_2()" /> <label for="niv_voy_2">Niveau 2</label><br />
+        <table id="niv_2" display="none" >
+          <tr>
+            <td><input type="checkbox"  name="liste_voy[]" value="ou" id="voy_niv_2_1" /> <label for="ou">ou</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="au" id="voy_niv_2_2" /> <label for="au">au</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="eu" id="voy_niv_2_3" /> <label for="eu">eu</label><br /></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="liste_voy[]" value="ez" id="voy_niv_2_11" /> <label for="ez">ez</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="er" id="voy_niv_2_12" /> <label for="er">er</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="et" id="voy_niv_2_13" /> <label for="et">et</label><br /></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="liste_voy[]" value="ai" id="voy_niv_2_4" /> <label for="ai">ai</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="ei" id="voy_niv_2_5" /> <label for="ei">ei</label><br /></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="liste_voy[]" value="on" id="voy_niv_2_6" /> <label for="on">on</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="om" id="voy_niv_2_7" /> <label for="om">om</label><br /></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="liste_voy[]" value="an" id="voy_niv_2_8" /> <label for="an">an</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="am" id="voy_niv_2_16" /> <label for="am">am</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="en" id="voy_niv_2_9" /> <label for="en">en</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="em" id="voy_niv_2_10" /> <label for="em">em</label><br /></td>
+          </tr>
+          <tr>
+            <td><input type="checkbox"  name="liste_voy[]" value="in" id="voy_niv_2_14" /> <label for="in">in</label><br /></td>
+            <td><input type="checkbox"  name="liste_voy[]" value="im" id="voy_niv_2_15" /> <label for="im">im</label><br /></td>
+          </tr>
+        </table>
+        <script>
+				    aff_cach_input_2();
+			  </script>
+		</div>
+
+		<div class="col-md-2">
+        <input type="checkbox" name="niv_voy" id="niv_voy_3" onchange="aff_cach_input_3()" /> <label for="niv_voy_3">Niveau 3</label><br />
+      <table id="niv_3" display="none" >
+        <tr><td><input type="checkbox"  name="liste_voy[]" value="eau" id="voy_niv_3_1" /> <label for="eau">eau</label><br /></td></tr>
+        <tr>
+          <td><input type="checkbox"  name="liste_voy[]" value="ain" id="voy_niv_3_2" /> <label for="ain">ain</label><br /></td>
+          <td><input type="checkbox"  name="liste_voy[]" value="aim" id="voy_niv_3_3" /> <label for="aim">aim</label><br /></td>
+          <td><input type="checkbox"  name="liste_voy[]" value="ein" id="voy_niv_3_4" /> <label for="ein">ein</label><br /></td>
+        </tr>
+      </table>
+      <script>
+				aff_cach_input_3();
+			</script>
+		</div>
+
+		<div class="col-md-2">
+        <input type="checkbox" name="niv_voy" id="niv_voy_4" onchange="aff_cach_input_4()" /> <label for="niv_voy_4">Niveau 4</label><br />
+			<p id="niv_4" display="none" >
+				<input type="checkbox"  name="liste_voy[]" value="oi" id="voy_niv_4_1" /> <label for="oi">oi</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="ui" id="voy_niv_4_2" /> <label for="ui">ui</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="ia" id="voy_niv_4_3" /> <label for="ia">ia</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="io" id="voy_niv_4_4" /> <label for="io">io</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="iu" id="voy_niv_4_5" /> <label for="iu">iu</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="ié" id="voy_niv_4_6" /> <label for="ié">ié</label><br />
+			</p><script>
+				aff_cach_input_4();
+			</script>
+		</div>
+
+		<div class="col-md-2">
+		<input type="checkbox" name="niv_voy" id="niv_voy_5" onchange="aff_cach_input_5()" /> <label for="niv_voy_5">Niveau 5</label><br />
+			<p id="niv_5" display="none" >
+				<input type="checkbox"  name="liste_voy[]" value="oin" id="voy_niv_5_1" /> <label for="oin">oin</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="ien" id="voy_niv_5_2" /> <label for="ien">ien</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="ion" id="voy_niv_5_3" /> <label for="ion">ion</label><br />
+				<input type="checkbox"  name="liste_voy[]" value="ian" id="voy_niv_5_4" /> <label for="ian">ian</label><br />
+			</p><script>
+        aff_cach_input_5();
+        aff_cach_input_consonne();
+			</script>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+
+  <div class="submit">
+	   <input type="submit" value="Générer" id="bouton_submit" />
+  </div>
+</form>
